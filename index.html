@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>言侦公寓 · 언진 아파트 | 八人侦探团角色设定</title>
+<meta name="description" content="言侦公寓——城市一角毫不起眼的公寓里，住着八名白天上学、夜里查案的少年少女。这里收录八个人的完整角色设定。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top">
+    <span class="brand-mark">言</span>
+    <span class="brand-text">言侦公寓<em>언진 아파트</em></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#world" data-i18n="nav.world">世界观</a>
+    <a href="#chars" data-i18n="nav.chars">角色档案</a>
+    <a href="#gallery" data-i18n="nav.gallery">设计原稿</a>
+  </nav>
+  <span class="nav-file">FILE No.0827</span>
+  <button class="lang-btn" id="langBtn" aria-label="切换语言">中 / 한</button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <video class="hero-bg hero-video" autoplay muted loop playsinline poster="assets/hero.jpg">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-veil"></div>
+    <canvas class="hero-dust" id="dust"></canvas>
+    <div class="hero-inner">
+      <p class="kicker reveal">CONFIDENTIAL · 机密档案 No.0827</p>
+      <h1 class="hero-title reveal">言侦公寓</h1>
+      <p class="hero-ko reveal">언진 아파트 · YAN ZHEN APARTMENT</p>
+      <p class="hero-sub reveal" data-i18n="hero.sub">八个人，八种异能，一栋不该住在一起的公寓</p>
+      <div class="hero-tags reveal">
+        <span data-i18n="hero.tag1">角色设计作业</span>
+        <span data-i18n="hero.tag2">八人侦探团</span>
+        <span data-i18n="hero.tag3">异能 · 悬疑 · 校园</span>
+      </div>
+      <a class="hero-cta reveal" href="#chars"><em data-i18n="hero.cta" style="font-style:normal;letter-spacing:.24em">进入档案</em><span></span></a>
+    </div>
+    <div class="hero-scroll"><i></i></div>
+  </section>
+
+  <section class="section world" id="world">
+    <header class="sec-head reveal">
+      <p class="sec-no">01 / WORLD</p>
+      <h2 data-i18n="sec.world">大背景</h2>
+      <p class="sec-ko" data-i18n="sec.world.ko">세계관 · 不存在的日常</p>
+    </header>
+    <div class="world-body" id="worldBody"></div>
+    <blockquote class="world-quote reveal">
+      你眼里的日常，可能是别人布局的棋局。
+      <cite>당신 눈에 보이는 일상은, 누군가 짜놓은 체스판일지도 모릅니다.</cite>
+    </blockquote>
+  </section>
+
+  <section class="section chars" id="chars">
+    <header class="sec-head reveal">
+      <p class="sec-no">02 / CHARACTERS</p>
+      <h2 data-i18n="sec.chars">角色档案</h2>
+      <p class="sec-ko" data-i18n="sec.chars.ko">캐릭터 프로필 · 八个编号</p>
+    </header>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="section gallery" id="gallery">
+    <header class="sec-head reveal">
+      <p class="sec-no">03 / SHEETS</p>
+      <h2 data-i18n="sec.gallery">设计原稿</h2>
+      <p class="sec-ko" data-i18n="sec.gallery.ko">디자인 원본 · 三视图与设定稿</p>
+    </header>
+    <div class="gal-grid" id="galGrid"></div>
+  </section>
+
+  <footer class="foot">
+    <p class="foot-main">言侦公寓 · 언진 아파트</p>
+    <p class="foot-sub" data-i18n="foot.sub">角色设计课程作业 · 八人侦探团设定</p>
+    <ul class="credits" id="credits"></ul>
+    <p class="foot-note" data-i18n="foot.note">本页所有文字与图像素材均来自课程作业原稿</p>
+  </footer>
+</main>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-scroll" id="modalScroll"></div>
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

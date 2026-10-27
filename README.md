@@ -1,49 +1,67 @@
 # 言侦公寓 · 언진 아파트
 
-八人侦探团角色设定网站。纯静态页面，无框架、无构建步骤，直接上传即可用 GitHub Pages 打开。
+> 你眼里的日常，可能是别人布局的棋局。
+> 당신 눈에 보이는 일상은, 누군가 짜놓은 체스판일지도 모릅니다.
 
-## 目录
+八人侦探团角色设定网站。纯静态页面，无框架、无构建步骤，直接放上 GitHub Pages 就能打开。
+여덟 명의 탐정단 캐릭터 설정 사이트. 순수 정적 페이지로 프레임워크도 빌드 과정도 없이, GitHub Pages에 올리면 바로 열립니다.
+
+全站中韩双语，右上角可切换。
+사이트 전체가 한국어·중국어 두 언어를 지원하며, 오른쪽 위에서 전환할 수 있습니다.
+
+## 目录 / 구조
 
 ```
-index.html            页面结构
+index.html            页面结构 / 페이지 구조
 assets/
-  data.js             全部角色文案（中文原文 + 韩文副标）
-  css/style.css       样式与动效
-  js/app.js           交互（卡片 3D、粒子、详情弹层、灯箱、键盘切换）
-  chars/*.webp        八个人物立绘（已去白底，透明）
-  gallery/*.jpg       设计原稿
-  hero.jpg / hero.mp4 封面图与动态封面视频
+  data.js             全部文案：中文原文 + 韩文（角色、世界观、界面词）/ 전체 텍스트: 중국어 원문 + 한국어
+  css/style.css       样式与动效 / 스타일과 모션
+  js/app.js           交互：卡片 3D、粒子、详情弹层、灯箱、键盘切换 / 인터랙션
+  chars/*.webp        八个人物立绘（已去白底）/ 여덟 명 캐릭터 일러스트 (배경 제거)
+  gallery/*.jpg       设计原稿 / 디자인 원본
+  hero.jpg / hero.mp4 封面图与动态封面视频 / 커버 이미지와 영상
 ```
 
-## 做了什么
+## 做了什么 / 구현한 것
 
 - 封面：hero.mp4 动态推移背景 + Canvas 尘埃粒子 + 标题逐字入场 + 光标光晕 + 视差
+  커버: hero.mp4 배경 이동 + Canvas 먼지 입자 + 한 글자씩 등장하는 타이틀 + 커서 글로우 + 시차 효과
 - 世界观：六段原文，关键词高亮，滚动逐段浮现
+  세계관: 여섯 문단, 키워드 하이라이트, 스크롤에 따라 한 문단씩 등장
 - 角色档案：八张卡，鼠标移动带 3D 倾斜与光斑，点击进入全屏档案
-- 角色档案详情：左立绘右资料，分「身份 / 外貌 / 性格 / 异能 / 内核 / 运营 / 设定细节」七组，中韩双语标题，分组导航随滚动高亮
+  캐릭터 카드: 여덟 장, 마우스를 따라 3D 기울기와 빛 번짐, 클릭하면 전체 화면 프로필
+- 角色详情：左立绘右资料，分「身份 / 外貌 / 性格 / 异能 / 内核 / 运营 / 设定细节」七组，分组导航随滚动高亮
+  프로필: 왼쪽 일러스트, 오른쪽 정보. 「신분 / 외형 / 성격 / 초능력 / 내면 / 운영 / 설정 디테일」일곱 묶음, 스크롤에 따라 목차 하이라이트
 - 设计原稿：点击放大灯箱
+  디자인 원본: 클릭하면 확대 라이트박스
 - 快捷键：详情页 ← → 切换角色，Esc 关闭
+  단축키: 프로필에서 ← → 캐릭터 전환, Esc 닫기
 - 响应式：手机两列、平板三列、桌面四列
+  반응형: 모바일 두 열, 태블릿 세 열, 데스크톱 네 열
 
-## 怎么上传到 GitHub Pages
+## 部署 / 배포
 
-1. 在 GitHub 新建仓库，比如 `yanzhen-apartment`，选 Public
-2. 把这个文件夹里的**全部内容**上传（index.html 要在仓库根目录）
-   - 网页端：Add file → Upload files，把 index.html 和 assets 文件夹一起拖进去
-   - 或命令行：
-     ```
-     git init
-     git add .
-     git commit -m "言侦公寓 角色设定站"
-     git branch -M main
-     git remote add origin https://github.com/你的用户名/yanzhen-apartment.git
-     git push -u origin main
-     ```
-3. 仓库 Settings → Pages → Source 选 `Deploy from a branch`，Branch 选 `main` / `root`，保存
-4. 等一两分钟，访问 `https://你的用户名.github.io/yanzhen-apartment/`
+1. GitHub 新建仓库，选 Public
+   GitHub에서 새 저장소를 만들고 Public 선택
+2. 把 `index.html` 和 `assets/` 一起放进仓库根目录
+   `index.html`과 `assets/` 폴더를 저장소 최상위에 함께 올리기
+   ```
+   git init
+   git add .
+   git commit -m "言侦公寓 角色设定站"
+   git branch -M main
+   git remote add origin https://github.com/你的用户名/yanzhen.git
+   git push -u origin main
+   ```
+3. Settings → Pages → Source 选 `Deploy from a branch`，Branch 选 `main` / `root`，保存
+   Settings → Pages → Source에서 `Deploy from a branch`, Branch는 `main` / `root`로 저장
+4. 等一两分钟，访问 `https://你的用户名.github.io/yanzhen/`
+   잠시 기다린 뒤 `https://사용자이름.github.io/yanzhen/` 접속
 
-本地预览：双击 index.html 即可（无需服务器）。
+本地预览：双击 `index.html` 即可，不需要服务器。
+로컬 미리보기: `index.html`을 더블클릭하면 됩니다. 서버는 필요 없습니다.
 
-## 说明
+## 说明 / 안내
 
 全部文字与图像素材来自课程作业原稿，页面仅做展示与排版。
+모든 텍스트와 이미지 소재는 수업 과제 원고에서 가져왔으며, 페이지는 전시와 편집만 담당합니다.

@@ -54,8 +54,20 @@
           <span class="card-ko">${sub}</span>
           <span class="card-tag">${tag}</span>
           <span class="card-foot"><span>${c.author}</span><span>${T("d.open", "打开档案 →")}</span></span>
+        </span>
+        <span class="card-sheet ${(c.arts && c.arts.length) ? "" : "empty"}" ${(c.arts && c.arts.length) ? `data-src="${c.arts[0].src}" data-cap="${LANG.v === "ko" ? (c.arts[0].capKo || c.arts[0].cap) : c.arts[0].cap}"` : ""}>
+          ${(c.arts && c.arts.length)
+            ? `<img src="${c.arts[0].src}" alt="" loading="lazy"><em class="sheet-tag">${T("card.sheet", "原始设定稿")}</em>`
+            : `<em>${T("d.arts.empty", "原稿整理中")}</em>`}
         </span>`;
       el.addEventListener("click", () => { location.hash = "#/c/" + c.slug; });
+      const sheet = el.querySelector(".card-sheet");
+      if (sheet) {
+        sheet.addEventListener("click", (ev) => {
+          ev.preventDefault(); ev.stopPropagation();
+          openLightbox(sheet.dataset.src, sheet.dataset.cap);
+        });
+      }
       grid.appendChild(el);
     });
     bindTilt();
@@ -144,11 +156,24 @@
             ${c.groups.map((g) => `<button data-go="g-${g.n}">${groupLabel(g.n)}</button>`).join("")}
           </nav>
           ${groups}
+          <section class="d-group d-arts" id="g-arts">
+            <h4>${T("d.arts", "原始设定")}</h4>
+            ${(c.arts && c.arts.length)
+              ? `<div class="d-art-grid">${c.arts.map((a) => `
+                  <figure class="d-art" data-src="${a.src}" data-cap="${LANG.v === "ko" ? (a.capKo || a.cap) : a.cap}">
+                    <img src="${a.src}" alt="${a.cap}" loading="lazy">
+                    <figcaption><span>${LANG.v === "ko" ? (a.capKo || a.cap) : a.cap}</span><em>${T("d.zoom", "放大查看")}</em></figcaption>
+                  </figure>`).join("")}</div>`
+              : `<p class="d-art-empty">${T("d.arts.empty", "原稿整理中")}</p>`}
+          </section>
         </div>
       </div>
       <button class="d-close" id="dClose" aria-label="关闭">✕</button>`;
 
     $("#dClose").addEventListener("click", closeModal);
+    mScroll.querySelectorAll(".d-art").forEach((fig) => {
+      fig.addEventListener("click", () => openLightbox(fig.dataset.src, fig.dataset.cap));
+    });
     mScroll.querySelectorAll("[data-go]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const t = document.getElementById(btn.dataset.go);
@@ -273,6 +298,26 @@
     document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
     document.body.classList.add("debug");
     document.querySelectorAll('img[loading="lazy"]').forEach((i) => { i.loading = "eager"; });
+    const only = new URLSearchParams(location.search).get("only");
+    if (only) document.querySelectorAll("main > section").forEach((sec) => { if (sec.id !== only) sec.style.display = "none"; });
+    const qs = new URLSearchParams(location.search);
+    const dmx = qs.get("mx"), dmy = qs.get("my");
+    if (dmx && dmy) {
+      document.body.classList.add("interactive");
+      const h = document.querySelector(".hero");
+      if (h) {
+        h.style.setProperty("--mx", dmx + "px");
+        h.style.setProperty("--my", dmy + "px");
+        h.querySelectorAll(".clue").forEach((cl) => {
+          const b = cl.getBoundingClientRect();
+          const hr = h.getBoundingClientRect();
+          const d = Math.hypot(b.left + b.width / 2 - (hr.left + +dmx), b.top + b.height / 2 - (hr.top + +dmy));
+          if (d < 210) cl.classList.add("lit");
+        });
+      }
+    }
+    const ms = new URLSearchParams(location.search).get("mscroll");
+    if (ms) setTimeout(() => { const el = document.getElementById("modalScroll"); if (el) el.scrollTop = parseInt(ms, 10) || 0; }, 700);
     const y = parseInt(new URLSearchParams(location.search).get("y") || "0", 10);
     if (y > 0) {
       document.documentElement.style.scrollBehavior = "auto";
@@ -467,5 +512,105 @@
     const show = () => { img.style.opacity = "1"; };
     img.addEventListener("load", show, { once: true });
     img.addEventListener("error", show, { once: true });
+  });
+})();
+
+
+/* ============================================================
+   首屏沉浸互动：光标探照 · 线索收集 · 磁吸 CTA · 涟漪
+   ============================================================ */
+(function () {
+  const hero = document.querySelector(".hero");
+  if (!hero) return;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = matchMedia("(pointer:fine)").matches;
+  const clues = [...hero.querySelectorAll(".clue")];
+  const hud = hero.querySelector(".clue-hud");
+  const cntEl = document.getElementById("clueCount");
+  const hint = hero.querySelector(".hero-hint");
+  const foundEl = document.getElementById("heroFound");
+  const title = hero.querySelector(".hero-title");
+  const cta = hero.querySelector(".hero-cta");
+  let lit = 0, active = false;
+
+  new IntersectionObserver((es) => {
+    es.forEach((e) => {
+      active = e.isIntersecting;
+      document.body.classList.toggle("interactive", active && fine && !reduce);
+    });
+  }, { threshold: 0.35 }).observe(hero);
+
+  function light(cl) {
+    if (cl.classList.contains("lit")) return;
+    cl.classList.add("lit", "pop");
+    setTimeout(() => cl.classList.remove("pop"), 650);
+    lit++;
+    if (cntEl) cntEl.textContent = lit;
+    if (lit === clues.length) {
+      if (hud) hud.classList.add("done");
+      if (foundEl) foundEl.classList.add("show");
+      if (hint) hint.classList.add("off");
+    }
+  }
+  clues.forEach((cl) => cl.addEventListener("click", () => light(cl)));
+
+  if (title) {
+    setTimeout(() => {
+      [...title.children].forEach((sp) => { sp.style.animation = "none"; sp.style.opacity = "1"; sp.style.transform = "none"; });
+      title.dataset.ready = "1";
+    }, 1700);
+  }
+
+  if (!fine || reduce) return;
+
+  hero.addEventListener("mousemove", (e) => {
+    if (!active) return;
+    const r = hero.getBoundingClientRect();
+    hero.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    hero.style.setProperty("--my", (e.clientY - r.top) + "px");
+
+    clues.forEach((cl) => {
+      const b = cl.getBoundingClientRect();
+      const d = Math.hypot(b.left + b.width / 2 - e.clientX, b.top + b.height / 2 - e.clientY);
+      if (d < 150) light(cl);
+    });
+
+    if (title && title.dataset.ready === "1") {
+      [...title.children].forEach((sp) => {
+        const b = sp.getBoundingClientRect();
+        const dx = b.left + b.width / 2 - e.clientX;
+        const dy = b.top + b.height / 2 - e.clientY;
+        const d = Math.hypot(dx, dy);
+        const f = Math.max(0, 1 - d / 220);
+        sp.style.transform = `translate(${(-dx * f * 0.07).toFixed(2)}px, ${(-dy * f * 0.07).toFixed(2)}px)`;
+      });
+    }
+
+    if (cta) {
+      const b = cta.getBoundingClientRect();
+      const dx = e.clientX - (b.left + b.width / 2);
+      const dy = e.clientY - (b.top + b.height / 2);
+      const d = Math.hypot(dx, dy);
+      cta.style.transform = d < 190 ? `translate(${(dx * 0.16).toFixed(1)}px, ${(dy * 0.16).toFixed(1)}px)` : "";
+    }
+  }, { passive: true });
+
+  hero.addEventListener("mouseleave", () => {
+    if (cta) cta.style.transform = "";
+    if (title) {
+      [...title.children].forEach((sp) => { sp.style.transform = ""; });
+      title.classList.remove("hot");
+    }
+  });
+
+  hero.addEventListener("click", (e) => {
+    if (e.target.closest("a,button,.clue")) return;
+    const r = hero.getBoundingClientRect();
+    const d = document.createElement("span");
+    d.className = "hero-ripple";
+    d.style.left = (e.clientX - r.left) + "px";
+    d.style.top = (e.clientY - r.top) + "px";
+    hero.appendChild(d);
+    setTimeout(() => d.remove(), 950);
   });
 })();

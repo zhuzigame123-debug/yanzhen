@@ -532,13 +532,13 @@ body.debug *{transition-duration:.001s!important;animation-duration:.001s!import
 /* ================= 角色卡 · 原始设定稿缩略 ================= */
 .card-sheet{
   position:relative;z-index:3;display:block;
-  width:calc(100% - 32px);margin:0 16px 15px;height:76px;
+  width:calc(100% - 32px);margin:0 16px 15px;height:94px;
   border-radius:3px;overflow:hidden;border:1px solid rgba(255,255,255,.1);
   background:#0b0c10;opacity:.72;cursor:zoom-in;
   transition:opacity .4s var(--ease),border-color .4s,box-shadow .4s;
 }
 .card-sheet img{
-  width:100%;height:100%;object-fit:cover;object-position:center 18%;
+  width:100%;height:100%;object-fit:cover;object-position:center 40%;
   display:block;filter:saturate(.92) brightness(.92);
 }
 .card-sheet .sheet-tag{
@@ -556,6 +556,8 @@ body.debug *{transition-duration:.001s!important;animation-duration:.001s!import
   box-shadow:0 14px 30px -12px rgba(0,0,0,.8)}
 .card-sheet:hover::after{opacity:1}
 .card:hover .card-sheet{opacity:.95}
+.card-sheet img[src*="yayan"]{object-fit:contain;object-position:center;background:#0c0d11}
+.card-sheet img[src*="qingyan"]{object-position:50% 30%}
 .card-sheet.empty{
   display:flex;align-items:center;justify-content:center;cursor:default;
   border-style:dashed;border-color:var(--line);

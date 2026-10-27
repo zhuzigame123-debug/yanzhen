@@ -193,7 +193,7 @@ window.DATA = {
    "koTag": "그녀 눈에 비치는 건, 당신이 가장 좋아하는 사람의 얼굴",
    "arts": [
     {
-     "src": "assets/gallery/g2.jpg",
+     "src": "assets/arts/xiayun.webp",
      "cap": "夏允 · 完整设定图",
      "capKo": "하윤 · 풀 캐릭터 시트"
     }
@@ -353,7 +353,13 @@ window.DATA = {
     }
    ],
    "koTag": "복원할 수도, 지울 수도 있다",
-   "arts": []
+   "arts": [
+    {
+     "src": "assets/arts/qingyan.webp",
+     "cap": "清颜 · 角色设定图",
+     "capKo": "청연 · 캐릭터 설정"
+    }
+   ]
   },
   {
    "slug": "yayan",
@@ -640,9 +646,9 @@ window.DATA = {
    "koTag": "부드러운 껍데기 속 격렬한 반전",
    "arts": [
     {
-     "src": "assets/gallery/g3.jpg",
-     "cap": "雅妍 · 角色风格对比",
-     "capKo": "아연 · 캐릭터 스타일 비교"
+     "src": "assets/arts/yayan.webp",
+     "cap": "雅妍 · 场景与定妆稿",
+     "capKo": "아연 · 장면 & 스타일 시트"
     }
    ]
   },
@@ -859,9 +865,9 @@ window.DATA = {
    "koTag": "모든 사람은 그의 체판 위의 말이다",
    "arts": [
     {
-     "src": "assets/gallery/d4.jpg",
-     "cap": "白川凛 · 角色风格稿",
-     "capKo": "시라카와 린 · 스타일 시트"
+     "src": "assets/arts/baichuanlin.webp",
+     "cap": "白川凛 · 形象与设定稿",
+     "capKo": "시라카와 린 · 비주얼 & 설정"
     }
    ]
   },
@@ -1046,9 +1052,9 @@ window.DATA = {
    "koTag": "초능력이 없기에 가장 위험하다",
    "arts": [
     {
-     "src": "assets/gallery/d2.jpg",
-     "cap": "何介 · 原版与新风格对比",
-     "capKo": "하개 · 원본 & 뉴 스타일"
+     "src": "assets/arts/hejie.webp",
+     "cap": "何介 · 设定总表",
+     "capKo": "하개 · 설정 시트"
     }
    ]
   },
@@ -1233,9 +1239,9 @@ window.DATA = {
    "koTag": "남은 물건을 만지고, 감정을 읽다",
    "arts": [
     {
-     "src": "assets/gallery/d3.jpg",
-     "cap": "尤知 · Q 版形象",
-     "capKo": "유지 · SD 이미지"
+     "src": "assets/arts/youzhi.webp",
+     "cap": "尤知 · 完整设定图",
+     "capKo": "유지 · 풀 캐릭터 시트"
     }
    ]
   },
@@ -1416,9 +1422,9 @@ window.DATA = {
    "koTag": "분명히 본 적 있는데, 도무지 생각나지 않는다",
    "arts": [
     {
-     "src": "assets/gallery/d3.jpg",
-     "cap": "旻晏 · Q 版形象",
-     "capKo": "민안 · SD 이미지"
+     "src": "assets/arts/minyan.webp",
+     "cap": "旻晏 · 角色设定表",
+     "capKo": "민안 · 캐릭터 시트"
     }
    ]
   },
@@ -1679,9 +1685,9 @@ window.DATA = {
    "koTag": "지옥을 본 자는, 지옥을 남에게 줄 수 있다",
    "arts": [
     {
-     "src": "assets/gallery/d1.jpg",
-     "cap": "竹知一 · 团队风格稿",
-     "capKo": "죽지일 · 팀 스타일 시트"
+     "src": "assets/arts/zhuzhiyi.webp",
+     "cap": "竹知一 · 角色立绘",
+     "capKo": "죽지일 · 캐릭터 일러스트"
     }
    ]
   }

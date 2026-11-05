@@ -196,6 +196,16 @@ window.DATA = {
      "src": "assets/arts/xiayun.webp",
      "cap": "夏允 · 完整设定图",
      "capKo": "하윤 · 풀 캐릭터 시트"
+    },
+    {
+     "src": "assets/arts/xiayun-c1.webp",
+     "cap": "夏允 · 四格漫画 ①",
+     "capKo": "하윤 · 네컷 만화 ①"
+    },
+    {
+     "src": "assets/arts/xiayun-c2.webp",
+     "cap": "夏允 · 四格漫画 ②",
+     "capKo": "하윤 · 네컷 만화 ②"
     }
    ]
   },
@@ -358,6 +368,16 @@ window.DATA = {
      "src": "assets/arts/qingyan.webp",
      "cap": "清颜 · 角色设定图",
      "capKo": "청연 · 캐릭터 설정"
+    },
+    {
+     "src": "assets/arts/qingyan-c1.webp",
+     "cap": "清颜 · 四格漫画 ①",
+     "capKo": "청연 · 네컷 만화 ①"
+    },
+    {
+     "src": "assets/arts/qingyan-c2.webp",
+     "cap": "清颜 · 四格漫画 ②",
+     "capKo": "청연 · 네컷 만화 ②"
     }
    ]
   },
@@ -649,6 +669,16 @@ window.DATA = {
      "src": "assets/arts/yayan.webp",
      "cap": "雅妍 · 场景与定妆稿",
      "capKo": "아연 · 장면 & 스타일 시트"
+    },
+    {
+     "src": "assets/arts/yayan-c1.webp",
+     "cap": "雅妍 · 四格漫画 ①",
+     "capKo": "아연 · 네컷 만화 ①"
+    },
+    {
+     "src": "assets/arts/yayan-c2.webp",
+     "cap": "雅妍 · 四格漫画 ②",
+     "capKo": "아연 · 네컷 만화 ②"
     }
    ]
   },
@@ -868,6 +898,16 @@ window.DATA = {
      "src": "assets/arts/baichuanlin.webp",
      "cap": "白川凛 · 形象与设定稿",
      "capKo": "시라카와 린 · 비주얼 & 설정"
+    },
+    {
+     "src": "assets/arts/baichuanlin-c1.webp",
+     "cap": "白川凛 · 四格漫画 ①",
+     "capKo": "시라카와 린 · 네컷 만화 ①"
+    },
+    {
+     "src": "assets/arts/baichuanlin-c2.webp",
+     "cap": "白川凛 · 四格漫画 ②",
+     "capKo": "시라카와 린 · 네컷 만화 ②"
     }
    ]
   },
@@ -1055,6 +1095,16 @@ window.DATA = {
      "src": "assets/arts/hejie.webp",
      "cap": "何介 · 设定总表",
      "capKo": "하개 · 설정 시트"
+    },
+    {
+     "src": "assets/arts/hejie-c1.webp",
+     "cap": "何介 · 四格漫画 ①",
+     "capKo": "하개 · 네컷 만화 ①"
+    },
+    {
+     "src": "assets/arts/hejie-c2.webp",
+     "cap": "何介 · 四格漫画 ②",
+     "capKo": "하개 · 네컷 만화 ②"
     }
    ]
   },
@@ -1242,6 +1292,16 @@ window.DATA = {
      "src": "assets/arts/youzhi.webp",
      "cap": "尤知 · 完整设定图",
      "capKo": "유지 · 풀 캐릭터 시트"
+    },
+    {
+     "src": "assets/arts/youzhi-c1.webp",
+     "cap": "尤知 · 四格漫画 ①",
+     "capKo": "유지 · 네컷 만화 ①"
+    },
+    {
+     "src": "assets/arts/youzhi-c2.webp",
+     "cap": "尤知 · 四格漫画 ②",
+     "capKo": "유지 · 네컷 만화 ②"
     }
    ]
   },
@@ -1425,6 +1485,16 @@ window.DATA = {
      "src": "assets/arts/minyan.webp",
      "cap": "旻晏 · 角色设定表",
      "capKo": "민안 · 캐릭터 시트"
+    },
+    {
+     "src": "assets/arts/minyan-c1.webp",
+     "cap": "旻晏 · 四格漫画 ①",
+     "capKo": "민안 · 네컷 만화 ①"
+    },
+    {
+     "src": "assets/arts/minyan-c2.webp",
+     "cap": "旻晏 · 四格漫画 ②",
+     "capKo": "민안 · 네컷 만화 ②"
     }
    ]
   },
@@ -1688,6 +1758,16 @@ window.DATA = {
      "src": "assets/arts/zhuzhiyi.webp",
      "cap": "竹知一 · 角色立绘",
      "capKo": "죽지일 · 캐릭터 일러스트"
+    },
+    {
+     "src": "assets/arts/zhuzhiyi-c1.webp",
+     "cap": "竹知一 · 四格漫画 ①",
+     "capKo": "죽지일 · 네컷 만화 ①"
+    },
+    {
+     "src": "assets/arts/zhuzhiyi-c2.webp",
+     "cap": "竹知一 · 四格漫画 ②",
+     "capKo": "죽지일 · 네컷 만화 ②"
     }
    ]
   }
